@@ -9,6 +9,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import BackToTop from "./components/BackToTop";
 import ScrollProgress from "./components/ScrollProgress";
+import "./App.css";
 
 function App() {
   useEffect(() => {
@@ -25,8 +26,7 @@ function App() {
       { threshold: 0.1 },
     );
 
-    const fadeUps = document.querySelectorAll(".fade-up");
-    fadeUps.forEach((el) => observer.observe(el));
+    document.querySelectorAll(".fade-up").forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
   }, []);

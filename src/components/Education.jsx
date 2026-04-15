@@ -33,8 +33,12 @@ const Education = () => {
       <h2 className="section-title">Education</h2>
 
       <div className="education-grid">
-        {education.map((edu) => (
-          <div key={edu.degree} className="education-card fade-up">
+        {education.map((edu, index) => (
+          <div
+            key={edu.degree}
+            className="education-card fade-up"
+            data-delay={index * 90}
+          >
             <div className="edu-header">
               <h3>{edu.degree}</h3>
               <span className="edu-year">{edu.year}</span>

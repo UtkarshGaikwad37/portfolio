@@ -35,6 +35,7 @@ const Contact = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="social-card"
+            aria-label="LinkedIn Profile"
           >
             <span className="social-icon">
               <svg
@@ -60,6 +61,7 @@ const Contact = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="social-card"
+            aria-label="GitHub Profile"
           >
             <span className="social-icon">
               <svg

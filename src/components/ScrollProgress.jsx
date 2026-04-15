@@ -2,19 +2,18 @@ import React, { useEffect } from "react";
 
 const ScrollProgress = () => {
   useEffect(() => {
-    const updateProgress = () => {
+    const handleScroll = () => {
       const scrollTop = window.scrollY;
       const docHeight =
         document.documentElement.scrollHeight - window.innerHeight;
       const scrollPercent = (scrollTop / docHeight) * 100;
-      const progressBar = document.querySelector(".scroll-progress-bar");
-      if (progressBar) {
-        progressBar.style.width = scrollPercent + "%";
-      }
+
+      document.querySelector(".scroll-progress-bar").style.width =
+        scrollPercent + "%";
     };
 
-    window.addEventListener("scroll", updateProgress);
-    return () => window.removeEventListener("scroll", updateProgress);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (

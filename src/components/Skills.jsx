@@ -4,26 +4,26 @@ const Skills = () => {
   const skillBarsRef = useRef([]);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
+    const skillObserver = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry, index) => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setTimeout(() => {
-              const bar = entry.target.querySelector("span");
-              bar.style.width = "0%";
-              setTimeout(() => {
-                bar.style.width = bar.getAttribute("data-width");
-              }, 200);
-            }, index * 150);
+            const bar = entry.target.querySelector("span");
+            const targetWidth = bar.dataset.width || "80%";
+            bar.style.width = targetWidth;
+            bar.style.setProperty("--target-width", targetWidth);
+            bar.style.animation = "fillBar 1.5s ease-out forwards";
           }
         });
       },
       { threshold: 0.5 },
     );
 
-    skillBarsRef.current.forEach((bar) => observer.observe(bar));
+    document
+      .querySelectorAll(".skill-bar")
+      .forEach((bar) => skillObserver.observe(bar));
 
-    return () => observer.disconnect();
+    return () => skillObserver.disconnect();
   }, []);
 
   const skills = [
@@ -49,13 +49,11 @@ const Skills = () => {
             key={skill.name}
             className="skill-card fade-up"
             ref={(el) => (skillBarsRef.current[index] = el)}
+            data-delay={index * 60}
           >
             <h3>{skill.name}</h3>
             <div className="skill-bar">
-              <span
-                style={{ width: skill.width }}
-                data-width={skill.width}
-              ></span>
+              <span data-width={skill.width}></span>
             </div>
           </div>
         ))}

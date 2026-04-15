@@ -4,16 +4,27 @@ const BackToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.scrollY > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
+    const heroText = "Building modern web applications";
+    const heroElement = document.querySelector(".hero h1");
+    let i = 0;
 
-    window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
+    function typeWriter() {
+      if (i < heroText.length) {
+        heroElement.innerHTML =
+          heroText.substring(0, i + 1) + '<span class="cursor">|</span>';
+        i++;
+        setTimeout(typeWriter, 100);
+      } else {
+        setTimeout(() => {
+          heroElement.innerHTML = heroText;
+        }, 1000);
+      }
+    }
+
+    setTimeout(() => {
+      heroElement.innerHTML = '<span class="cursor">|</span>';
+      typeWriter();
+    }, 1000);
   }, []);
 
   const scrollToTop = () => {
@@ -25,6 +36,8 @@ const BackToTop = () => {
       id="backToTop"
       className={isVisible ? "show" : ""}
       onClick={scrollToTop}
+      aria-label="Scroll to top"
+      title="Back to top"
     >
       ↑
     </button>

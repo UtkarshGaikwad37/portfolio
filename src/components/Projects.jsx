@@ -45,15 +45,31 @@ const Projects = () => {
 
       <div className="project-grid">
         {projects.map((project, index) => (
-          <div key={project.title} className="project-card fade-up">
+          <div
+            key={project.title}
+            className="project-card fade-up"
+            data-delay={index * 100}
+          >
             <h3>{project.title}</h3>
             <p>{project.description}</p>
-            <a href={project.live} className="primary-button">
-              Live
-            </a>
-            <a href={project.github} className="secondary-button">
-              GitHub
-            </a>
+            <div className="project-buttons">
+              <a
+                href={project.live}
+                className="primary-button"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Live
+              </a>
+              <a
+                href={project.github}
+                className="secondary-button"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub
+              </a>
+            </div>
           </div>
         ))}
       </div>

@@ -1,19 +1,61 @@
 # Portfolio Site
 
-A simple responsive portfolio website built with HTML, CSS, and JavaScript.
+A modern responsive portfolio website built with React, Vite, and CSS.
 
-## Files
+## Features
 
-- `index.html` — main landing page
-- `styles.css` — responsive styling and layout
-- `script.js` — small interaction helper
+- Responsive design
+- Smooth scroll animations
+- Interactive components
+- Modern UI with glassmorphism effects
+
+## Technologies Used
+
+- React 19
+- Vite
+- CSS with custom animations
+- Lucide React icons
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v16 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+4. Open [http://localhost:5173](http://localhost:5173) in your browser
+
+### Build for Production
+
+```bash
+npm run build
+npm run preview
+```
 
 ## Customize
 
-- Change the name and introduction text in `index.html`
-- Update the project cards with your real work
-- Replace the contact email with your own in the contact section
+- Update personal information in the components
+- Replace project links and descriptions
+- Modify styles in `src/App.css`
+- Add your own images in `public/images/`
 
-## Run locally
+## Project Structure
 
-Open `index.html` in your browser or use a simple static server.
+```
+src/
+├── components/     # Reusable React components
+├── App.jsx         # Main app component
+├── App.css         # Global styles
+└── main.jsx        # App entry point
+```

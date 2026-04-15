@@ -1,22 +1,19 @@
 {
   "name": "portfolio",
   "version": "1.0.0",
-  "description": "A simple responsive portfolio website built with HTML, CSS, and JavaScript.",
-  "main": "script.js",
+  "description": "Personal portfolio website built with React, Vite, and modern responsive UI patterns.",
+  "main": "src/main.jsx",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "preview": "vite preview"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@vitejs/plugin-react": "^6.0.1",
     "vite": "^8.0.8"
   },
   "dependencies": {
+    "lucide-react": "^1.8.0",
     "react": "^19.2.5",
     "react-dom": "^19.2.5"
   }
